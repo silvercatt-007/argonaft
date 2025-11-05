@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Argonaft Extreme Fireworks</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .neon-container {
+            display: flex;
+            gap: 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .letter {
+            font-size: 150px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .letter.exploding {
+            animation: megaBright 0.5s ease-out;
+        }
+
+        .letter:nth-child(1) {
+            animation: glow1 1.5s ease-in-out infinite;
+        }
+
+        .letter:nth-child(2) {
+            animation: glow2 2s ease-in-out infinite;
+        }
+
+        .letter:nth-child(3) {
+            animation: glow3 1.8s ease-in-out infinite;
+        }
+
+        .letter:nth-child(4) {
+            animation: glow4 2.2s ease-in-out infinite;
+        }
+
+        .letter:nth-child(5) {
+            animation: glow5 1.6s ease-in-out infinite;
+        }
+
+        .letter:nth-child(6) {
+            animation: glow6 2.4s ease-in-out infinite;
+        }
+
+        .letter:nth-child(7) {
+            animation: glow7 1.9s ease-in-out infinite;
+        }
+
+        .letter:nth-child(8) {
+            animation: glow8 2.1s ease-in-out infinite;
+        }
+
+        @keyframes glow1 {
+            0%, 100% { text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000, 0 0 100px #ff0000; }
+            50% { text-shadow: 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 120px #ff0000, 0 0 160px #ff0000, 0 0 200px #ff0000; }
+        }
+
+        @keyframes glow2 {
+            0%, 100% { text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00, 0 0 80px #00ff00, 0 0 100px #00ff00; }
+            50% { text-shadow: 0 0 40px #00ff00, 0 0 80px #00ff00, 0 0 120px #00ff00, 0 0 160px #00ff00, 0 0 200px #00ff00; }
+        }
+
+        @keyframes glow3 {
+            0%, 100% { text-shadow: 0 0 20px #0000ff, 0 0 40px #0000ff, 0 0 60px #0000ff, 0 0 80px #0000ff, 0 0 100px #0000ff; }
+            50% { text-shadow: 0 0 40px #0000ff, 0 0 80px #0000ff, 0 0 120px #0000ff, 0 0 160px #0000ff, 0 0 200px #0000ff; }
+        }
+
+        @keyframes glow4 {
+            0%, 100% { text-shadow: 0 0 20px #ffff00, 0 0 40px #ffff00, 0 0 60px #ffff00, 0 0 80px #ffff00, 0 0 100px #ffff00; }
+            50% { text-shadow: 0 0 40px #ffff00, 0 0 80px #ffff00, 0 0 120px #ffff00, 0 0 160px #ffff00, 0 0 200px #ffff00; }
+        }
+
+        @keyframes glow5 {
+            0%, 100% { text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 60px #ff00ff, 0 0 80px #ff00ff, 0 0 100px #ff00ff; }
+            50% { text-shadow: 0 0 40px #ff00ff, 0 0 80px #ff00ff, 0 0 120px #ff00ff, 0 0 160px #ff00ff, 0 0 200px #ff00ff; }
+        }
+
+        @keyframes glow6 {
+            0%, 100% { text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff, 0 0 80px #00ffff, 0 0 100px #00ffff; }
+            50% { text-shadow: 0 0 40px #00ffff, 0 0 80px #00ffff, 0 0 120px #00ffff, 0 0 160px #00ffff, 0 0 200px #00ffff; }
+        }
+
+        @keyframes glow7 {
+            0%, 100% { text-shadow: 0 0 20px #ff8800, 0 0 40px #ff8800, 0 0 60px #ff8800, 0 0 80px #ff8800, 0 0 100px #ff8800; }
+            50% { text-shadow: 0 0 40px #ff8800, 0 0 80px #ff8800, 0 0 120px #ff8800, 0 0 160px #ff8800, 0 0 200px #ff8800; }
+        }
+
+        @keyframes glow8 {
+            0%, 100% { text-shadow: 0 0 20px #88ff00, 0 0 40px #88ff00, 0 0 60px #88ff00, 0 0 80px #88ff00, 0 0 100px #88ff00; }
+            50% { text-shadow: 0 0 40px #88ff00, 0 0 80px #88ff00, 0 0 120px #88ff00, 0 0 160px #88ff00, 0 0 200px #88ff00; }
+        }
+
+        @keyframes megaBright {
+            0% { 
+                text-shadow: 0 0 40px #fff, 0 0 80px #fff, 0 0 120px #fff, 0 0 160px #fff;
+                transform: scale(1);
+            }
+            30% { 
+                text-shadow: 
+                    0 0 200px #fff, 
+                    0 0 300px #fff, 
+                    0 0 400px #fff, 
+                    0 0 500px #fff, 
+                    0 0 600px #fff,
+                    0 0 800px #fff;
+                transform: scale(1.5);
+            }
+            100% { 
+                text-shadow: 0 0 40px #fff, 0 0 80px #fff, 0 0 120px #fff, 0 0 160px #fff;
+                transform: scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        .particle {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .trail {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes trail {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0.2);
+                opacity: 0;
+            }
+        }
+
+        .flash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        @keyframes screenFlash {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="flash" id="flash"></div>
+    <div class="neon-container" id="container">
+        <span class="letter">A</span>
+        <span class="letter">R</span>
+        <span class="letter">G</span>
+        <span class="letter">O</span>
+        <span class="letter">N</span>
+        <span class="letter">A</span>
+        <span class="letter">F</span>
+        <span class="letter">T</span>
+    </div>
+
+    <script>
+        const letters = document.querySelectorAll('.letter');
+        const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ff8800', '#88ff00'];
+        const flash = document.getElementById('flash');
+
+        function createScreenFlash(color) {
+            flash.style.background = `radial-gradient(circle, ${color}80 0%, rgba(0,0,0,0) 70%)`;
+            flash.style.animation = 'screenFlash 0.8s ease-out';
+            setTimeout(() => {
+                flash.style.animation = '';
+            }, 800);
+        }
+
+        function createMegaFirework(letter, index) {
+            const rect = letter.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const color = colors[index];
+            
+            createScreenFlash(color);
+
+            // Create main explosion particles
+            const mainParticles = 80;
+            for (let i = 0; i < mainParticles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.backgroundColor = color;
+                particle.style.boxShadow = `0 0 20px ${color}, 0 0 40px ${color}, 0 0 60px ${color}`;
+                particle.style.left = centerX + 'px';
+                particle.style.top = centerY + 'px';
+                
+                const angle = (Math.PI * 2 * i) / mainParticles;
+                const velocity = 200 + Math.random() * 400;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+                
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                
+                document.body.appendChild(particle);
+                
+                particle.style.animation = `explode ${1 + Math.random() * 0.5}s ease-out forwards`;
+                
+                setTimeout(() => particle.remove(), 1500);
+
+                // Create trails for each particle
+                if (i % 2 === 0) {
+                    for (let t = 0; t < 5; t++) {
+                        setTimeout(() => {
+                            const trail = document.createElement('div');
+                            trail.className = 'trail';
+                            trail.style.backgroundColor = color;
+                            trail.style.boxShadow = `0 0 10px ${color}`;
+                            trail.style.left = centerX + 'px';
+                            trail.style.top = centerY + 'px';
+                            trail.style.setProperty('--tx', (tx * 0.7) + 'px');
+                            trail.style.setProperty('--ty', (ty * 0.7) + 'px');
+                            document.body.appendChild(trail);
+                            trail.style.animation = `trail ${0.8 + Math.random() * 0.3}s ease-out forwards`;
+                            setTimeout(() => trail.remove(), 1100);
+                        }, t * 50);
+                    }
+                }
+            }
+
+            // Create secondary explosions across screen
+            for (let s = 0; s < 5; s++) {
+                setTimeout(() => {
+                    const randomX = Math.random() * window.innerWidth;
+                    const randomY = Math.random() * window.innerHeight;
+                    createSecondaryBurst(randomX, randomY, color);
+                }, 300 + s * 150);
+            }
+        }
+
+        function createSecondaryBurst(x, y, color) {
+            const particles = 30;
+            for (let i = 0; i < particles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.backgroundColor = color;
+                particle.style.boxShadow = `0 0 15px ${color}, 0 0 30px ${color}`;
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.width = '6px';
+                particle.style.height = '6px';
+                
+                const angle = (Math.PI * 2 * i) / particles;
+                const velocity = 100 + Math.random() * 200;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+                
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+                
+                document.body.appendChild(particle);
+                
+                particle.style.animation = `explode ${0.8 + Math.random() * 0.4}s ease-out forwards`;
+                
+                setTimeout(() => particle.remove(), 1200);
+            }
+        }
+
+        function explodeLetter(index) {
+            const letter = letters[index];
+            letter.classList.add('exploding');
+            
+            setTimeout(() => {
+                createMegaFirework(letter, index);
+            }, 200);
+            
+            setTimeout(() => {
+                letter.classList.remove('exploding');
+                letter.style.opacity = '1';
+            }, 500);
+        }
+
+        function randomExplosion() {
+            const randomIndex = Math.floor(Math.random() * letters.length);
+            explodeLetter(randomIndex);
+            
+            // Sometimes do multiple explosions in quick succession
+            if (Math.random() > 0.6) {
+                setTimeout(() => {
+                    const anotherIndex = Math.floor(Math.random() * letters.length);
+                    explodeLetter(anotherIndex);
+                }, 400);
+            }
+            
+            const nextDelay = 1500 + Math.random() * 2500;
+            setTimeout(randomExplosion, nextDelay);
+        }
+
+        // Click any letter to trigger explosion
+        letters.forEach((letter, index) => {
+            letter.addEventListener('click', () => {
+                explodeLetter(index);
+            });
+        });
+
+        // Start the show
+        setTimeout(randomExplosion, 1500);
+
+        // Create ambient particles occasionally
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                createSecondaryBurst(x, y, color);
+            }
+        }, 3000);
+    </script>
+</body>
+</html>
